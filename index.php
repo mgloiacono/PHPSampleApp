@@ -8,7 +8,7 @@
 
 <body>
   <nav>
-    <a class="heading" href="#">ToDo App Hosted in: <?php echo gethostname(); ?> </a>
+    <a class="heading" href="#">ToDo App Hosted in <?php echo gethostname(); ?> </a>
   </nav>
   <div class="container">
     <div class="input-area">
@@ -45,18 +45,19 @@ or die(mysqli_error($db));
           <td>
             <?php echo $fetch['status'] ?>
           </td>
-          <td colspan="2" class="action">
+          <td colspan="2" class="action"> 
             <?php
-                if ($fetch['status'] != "Done")
+                //echo $fetch['status'];
+                if ($fetch['status'] == "Pending")
                 {
-                    echo
-'<a href="update_task.php?task_id=' . $fetch['task_id'] . '" 
-class="btn-completed">Done</a>';
+                    echo '<a href="update_task.php?task_id=' . $fetch['task_id'] . '&status=InProgress" class="btn-completed">InProgress</a>';
+                }
+                elseif ($fetch['status'] == "InProgress") 
+                {
+                  echo '<a href="update_task.php?task_id=' . $fetch['task_id'] . '&status=Done" class="btn-completed">Done</a>';
                 }
             ?>
-            <a href=
-"delete_task.php?task_id=<?php echo $fetch['task_id'] ?>" 
-               class="btn-remove">
+            <a href= "delete_task.php?task_id=<?php echo $fetch['task_id'] ?>" class="btn-remove">
               Delete
             </a>
           </td>
