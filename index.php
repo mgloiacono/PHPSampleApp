@@ -8,7 +8,7 @@
 
 <body>
   <nav>
-    <a class="heading" href="#">ToDo App v1.4 Hosted in <?php echo gethostname(); ?> </a>
+    <a class="heading" href="#">ToDo App vMiercoles Hosted in <?php echo gethostname(); ?> </a>
   </nav>
   <div class="container">
     <div class="input-area">
